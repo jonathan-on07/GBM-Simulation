@@ -1,82 +1,54 @@
 # Geometric Brownian Motion & Monte Carlo Option Pricing
 
-A Python implementation of **Geometric Brownian Motion (GBM)** for simulating stock price paths using Monte Carlo methods. The project also includes risk analysis through **Value at Risk (VaR)** and **Conditional Value at Risk (CVaR)**, as well as pricing a European call option and comparing the result to the analytical **Black–Scholes** solution.
+A Python implementation of Geometric Brownian Motion (GBM) used to simulate stock price movements with Monte Carlo methods. The project includes risk analysis using Value at Risk (VaR) and Conditional Value at Risk (CVaR), as well as pricing European call options and validating the Monte Carlo estimate against the Black–Scholes analytical solution.
 
 ---
 
 ## Features
 
-- Simulate stock prices using Geometric Brownian Motion
-- Fully vectorized NumPy implementation
-- Monte Carlo simulation of thousands of price paths
-- Distribution of simulated returns
-- Value at Risk (90%, 95%, 99%)
-- Conditional Value at Risk (CVaR)
-- European call option pricing using Monte Carlo
-- Analytical Black–Scholes option pricing
-- Confidence interval for Monte Carlo estimate
+- Simulates thousands of stock price paths using Geometric Brownian Motion
+- Fully vectorized implementation using NumPy
+- Calculates Value at Risk (90%, 95%, and 99%)
+- Calculates Conditional Value at Risk (CVaR)
+- Prices European call options using Monte Carlo simulation
+- Compares Monte Carlo results with the Black–Scholes formula
+- Visualizes simulated price paths and return distributions
 
 ---
 
 ## Mathematical Model
 
-The stock price follows the stochastic differential equation
+The stock price evolves according to the Geometric Brownian Motion model
 
-\[
-dS_t=\mu S_t\,dt+\sigma S_t\,dW_t
-\]
+```
+dS = μS dt + σS dW
+```
 
-whose exact solution is
+which has the analytical solution
 
-\[
-S_t=S_0\exp\left[\left(\mu-\frac12\sigma^2\right)t+\sigma W_t\right].
-\]
+```
+S(t) = S₀ exp[(μ − ½σ²)t + σW(t)]
+```
 
-Each simulation evolves according to
+Each simulated time step is generated using
 
-\[
-S_{t+1}
-=
-S_t
-\exp\left(
-\left(\mu-\frac12\sigma^2\right)\Delta t
-+
-\sigma\sqrt{\Delta t}\,Z
-\right),
-\]
+```
+S(t+Δt) = S(t) × exp[(μ − ½σ²)Δt + σ√Δt Z]
+```
 
-where
-
-- \(Z\sim N(0,1)\)
-- \(\mu\) is the expected annual return
-- \(\sigma\) is the annual volatility
+where `Z ~ N(0,1)`.
 
 ---
 
-## European Call Option Pricing
+## Example Output
 
-The option price is estimated using Monte Carlo simulation
+### Simulated Stock Price Paths
 
-\[
-C=e^{-rT}\mathbb{E}[\max(S_T-K,0)]
-\]
+![GBM Simulation](figures/gbm_paths.png)
 
-and compared with the analytical Black–Scholes solution.
+### Distribution of Simulated Returns
 
-Example output
-
-```
-European Call Option
-
-Monte Carlo Price : 8.17
-Black-Scholes     : 8.02
-
-Absolute Error    : 0.15
-Relative Error    : 1.87%
-
-95% Confidence Interval
-[8.03, 8.31]
-```
+![Return Distribution](figures/return_distribution.png)
 
 ---
 
@@ -86,13 +58,23 @@ Relative Error    : 1.87%
 - NumPy
 - Pandas
 - Matplotlib
+- SciPy
+
+---
 
 ## Future Improvements
 
 - Asian option pricing
 - Barrier option pricing
+- Greeks (Delta, Gamma, Vega)
 - Variance reduction techniques
-- Delta, Gamma and Vega estimation
-- Calibration using historical market data
+- Historical parameter calibration
 - Performance benchmarking
 
+---
+
+## Author
+
+Jonathan Nkana
+
+Bachelor of Science in Actuarial and Financial Mathematics
