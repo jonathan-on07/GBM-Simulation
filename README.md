@@ -44,11 +44,11 @@ where `Z ~ N(0,1)`.
 
 ### Simulated Stock Price Paths
 
-![GBM Simulation](figures/gbm_paths.png)
+![GBM Simulation](figures\gbm_paths.png)
 
 ### Distribution of Simulated Returns
 
-![Return Distribution](figures/return_distribution.png)
+![Return Distribution](figures\return_distribution.png)
 
 ---
 
