@@ -41,7 +41,7 @@ where `Z ~ N(0,1)`.
 ---
 
 ## Example Output
-
+(random seed of 42 used)
 ### Simulated Stock Price Paths
 
 ![GBM Simulation](figures/gbm_paths.png)
@@ -58,7 +58,6 @@ where `Z ~ N(0,1)`.
 - NumPy
 - Pandas
 - Matplotlib
-- SciPy
 
 ---
 
@@ -77,4 +76,4 @@ where `Z ~ N(0,1)`.
 
 Jonathan Nkana
 
-Bachelor of Science in Actuarial and Financial Mathematics
+Bachelor of Science in Actuarial and Financial Mathematics - University of Pretoria
