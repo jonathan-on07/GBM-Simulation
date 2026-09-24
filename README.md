@@ -62,11 +62,7 @@ where `Z ~ N(0,1)`.
 ---
 
 ## Future Improvements
-
-- Asian option pricing
-- Barrier option pricing
-- Greeks (Delta, Gamma, Vega)
-- Variance reduction techniques
+
 - Historical parameter calibration
 - Performance benchmarking
 
